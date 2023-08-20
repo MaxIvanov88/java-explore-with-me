@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS stats;
+
+CREATE TABLE IF NOT EXISTS stats(
+    id        BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    app       VARCHAR(40),
+    uri       VARCHAR(40),
+    ip        VARCHAR(40),
+    timestamp TIMESTAMP WITHOUT TIME ZONE
+);
