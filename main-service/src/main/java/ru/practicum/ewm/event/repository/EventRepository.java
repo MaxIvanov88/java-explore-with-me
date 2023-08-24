@@ -2,9 +2,9 @@ package ru.practicum.ewm.event.repository;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 import ru.practicum.ewm.category.model.Category;
 import ru.practicum.ewm.event.model.Event;
 import ru.practicum.ewm.event.model.enums.EventState;
