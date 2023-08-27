@@ -97,11 +97,9 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<CommentDto> getAll(Long eventId, Pageable pageable) {
         getEventById(eventId);
-        List<Comment> comments = commentRepository.findAllByEventId(eventId, pageable);
+        List<Comment> comments = commentRepository.findCommentsByEventId(eventId, pageable);
         return comments.stream()
                 .map(CommentMapper::toCommentDto)
-                .filter(c -> c.getStatus().equals(CommentStatus.PUBLISHED))
-                .sorted(Comparator.comparing(CommentDto::getCreated))
                 .collect(Collectors.toList());
     }
 
@@ -111,7 +109,6 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> comments = commentRepository.findAllByEventId(eventId, pageable);
         return comments.stream()
                 .map(CommentMapper::toCommentDto)
-                .sorted(Comparator.comparing(CommentDto::getCreated))
                 .collect(Collectors.toList());
     }
 
