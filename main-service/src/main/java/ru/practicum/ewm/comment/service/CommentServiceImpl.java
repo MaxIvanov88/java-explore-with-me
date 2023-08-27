@@ -22,7 +22,6 @@ import ru.practicum.ewm.exception.NotFoundException;
 import ru.practicum.ewm.user.model.User;
 import ru.practicum.ewm.user.repository.UserRepository;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
