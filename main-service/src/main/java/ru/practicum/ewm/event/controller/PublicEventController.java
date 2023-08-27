@@ -28,17 +28,17 @@ public class PublicEventController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Collection<EventDto> getAllEvents(@RequestParam(required = false) String text,
-                                                  @RequestParam(required = false) List<Long> categories,
-                                                  @RequestParam(required = false) Boolean paid,
-                                                  @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-                                                  LocalDateTime rangeStart,
-                                                  @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-                                                  LocalDateTime rangeEnd,
-                                                  @RequestParam(required = false) boolean onlyAvailable,
-                                                  @RequestParam(required = false) String sort,
-                                                  @RequestParam(defaultValue = "0") @PositiveOrZero Integer from,
-                                                  @RequestParam(defaultValue = "10") @Positive Integer size,
-                                                  HttpServletRequest httpRequest) {
+                                             @RequestParam(required = false) List<Long> categories,
+                                             @RequestParam(required = false) Boolean paid,
+                                             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+                                             LocalDateTime rangeStart,
+                                             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+                                             LocalDateTime rangeEnd,
+                                             @RequestParam(required = false) boolean onlyAvailable,
+                                             @RequestParam(required = false) String sort,
+                                             @RequestParam(defaultValue = "0") @PositiveOrZero Integer from,
+                                             @RequestParam(defaultValue = "10") @Positive Integer size,
+                                             HttpServletRequest httpRequest) {
         log.info("GET-Получение событий с фильтрацией.");
         PageRequest page = PageRequest.of(from, size);
         return eventService.getAllEvents(text, categories, paid, rangeStart, rangeEnd, onlyAvailable, sort,
